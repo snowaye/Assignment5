@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Assignment5</string>
+    <string name="title_activity_house_renting">HouseRentingActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_for_you">For You</string>
+    <string name="title_near_me">Near Me</string>
+    <string name="title_favourite">Favourite</string>
+    <string name="title_discover">Discover</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_more">More</string>
+
+    <string name="hint_search_text">Your location, addresss,..</string>
+</resources>
