@@ -12,9 +12,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".activity.HouseDetailActivity"
-            android:label="@string/title_activity_house_detail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".activity.HouseDetailActivity"/>
         <activity android:name=".activity.HouseRentingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

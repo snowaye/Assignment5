@@ -7,20 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.padc.batch9.assignment5.R;
+import com.padc.batch9.assignment5.activity.data.vo.HouseVo;
 import com.padc.batch9.assignment5.activity.view.viewholder.HouseViewHolder;
 
-public class HouseAdapter extends RecyclerView.Adapter<HouseViewHolder> {
+public class HouseAdapter extends BaseRecyclerViewAdapter<HouseViewHolder, HouseVo> {
     @NonNull
     @Override
     public HouseViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.listitem_house,
                 viewGroup, false);
         return new HouseViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull HouseViewHolder houseViewHolder, int i) {
-
     }
 
     @Override

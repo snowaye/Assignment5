@@ -20,6 +20,7 @@ import com.padc.batch9.assignment5.activity.fragment.ForYouFragment;
 import com.padc.batch9.assignment5.activity.fragment.MoreFragment;
 import com.padc.batch9.assignment5.activity.fragment.NearMeFragment;
 import com.padc.batch9.assignment5.activity.fragment.ProfileFragment;
+import com.padc.batch9.assignment5.activity.util.Utils;
 
 public class HouseRentingActivity extends AppCompatActivity implements TabLayout.BaseOnTabSelectedListener {
     private String tag = getClass().getSimpleName();
@@ -33,6 +34,7 @@ public class HouseRentingActivity extends AppCompatActivity implements TabLayout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house_renting);
         initializeUiComponent();
+        Utils.setStatusBarColor(this, R.color.statusBarColor);
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
