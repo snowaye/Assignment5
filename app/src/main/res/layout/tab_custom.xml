@@ -7,14 +7,6 @@
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/imgv_tab"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_gravity="center"
-        android:layout_marginEnd="@dimen/inner_margin"
-        android:layout_marginBottom="@dimen/m_layout_padding"
-        app:srcCompat="@drawable/ic_for_you"/>
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/tv_tab"
         android:layout_width="match_parent"
@@ -24,4 +16,14 @@
         android:textStyle="bold"
         android:gravity="center"
         android:textColor="@color/tabTextColor"/>
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/imgv_tab"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        android:layout_marginEnd="@dimen/inner_margin"
+        android:layout_marginBottom="@dimen/m_layout_padding"
+        app:srcCompat="@drawable/ic_dot"/>
+
 </LinearLayout>

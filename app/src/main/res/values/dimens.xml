@@ -20,4 +20,7 @@
     <dimen name="text_size_body_small">14sp</dimen>
     <dimen name="text_size_body_xsmall">12sp</dimen>
     <dimen name="tab_text_size">16sp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>
