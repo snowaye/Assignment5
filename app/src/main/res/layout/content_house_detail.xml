@@ -18,6 +18,7 @@
             app:cardCornerRadius="@dimen/activity_vertical_margin"
             app:cardUseCompatPadding="true"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
+            app:cardElevation="@dimen/inner_margin"
             app:cardBackgroundColor="@color/textColorWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -34,11 +35,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
                         android:layout_marginTop="@dimen/activity_horizontal_margin"
-                        android:text="$ 150000"
+                        android:text="@string/label_detail_price"
                         android:textSize="@dimen/text_size_title_h2"
                         android:textColor="@color/textColorMain"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="@dimen/activity_horizontal_margin"/>
+                        android:textStyle="bold"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -48,6 +48,7 @@
                         <android.support.v7.widget.AppCompatImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
+                            android:layout_gravity="end"
                             android:layout_marginEnd="@dimen/activity_vertical_margin"
                             app:srcCompat="@drawable/ic_location"/>
                         <android.support.v7.widget.AppCompatTextView
@@ -56,7 +57,7 @@
                             android:layout_weight="1"
                             android:textSize="@dimen/text_size_body"
                             android:textColor="@color/textColorMain"
-                            android:text="Web Minster, London"/>
+                            android:text="@string/label_house_location"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -84,7 +85,7 @@
                                 android:textSize="@dimen/text_size_body"
                                 android:textColor="@color/textColorMain"
                                 android:layout_weight="1"
-                                android:text="3200 Sqft"/>
+                                android:text="@string/label_squareft"/>
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="0dp"
@@ -103,7 +104,7 @@
                                 android:layout_weight="1"
                                 android:textSize="@dimen/text_size_body"
                                 android:textColor="@color/textColorMain"
-                                android:text="4 bedrooms"/>
+                                android:text="@string/label_rooms"/>
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
@@ -130,7 +131,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="324 Favourites"
+                                android:text="@string/label_favourite"
                                 android:textColor="@color/textColorMain"
                                 android:textSize="@dimen/text_size_body"/>
                         </LinearLayout>
@@ -151,14 +152,16 @@
                                 android:textColor="@color/textColorMain"
                                 android:textSize="@dimen/text_size_body"
                                 android:layout_weight="1"
-                                android:text="23 Reviews"/>
+                                android:text="@string/label_review"/>
                         </LinearLayout>
                     </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0.5dp"
-                        android:background="@color/textColorPrimaryLight"
-                        android:layout_margin="@dimen/activity_horizontal_margin"/>
+                        android:background="@color/textColorMainLight"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                        android:layout_marginBottom="@dimen/activity_horizontal_margin"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -192,7 +195,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/ic_send"
+                    android:clickable="false"
                     android:layout_gravity="top|end"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
             </FrameLayout>
 
@@ -200,7 +205,7 @@
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Single Family House"
+            android:text="@string/label_single_family_house"
             android:layout_margin="@dimen/activity_horizontal_margin"
             android:textSize="@dimen/text_size_title_h2"
             android:textColor="@color/textColorMain"
@@ -212,8 +217,9 @@
             android:lineSpacingExtra="10dp"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:text="You will fall in love with this 4 bedroom, 2 bath home featuring 2185 SF and a large fenced lot! Upon entering the home you step into a large foyer and a formal dining room on your right. You will love the wide open space of the living/kitchen/breakfast area which is perfect for large gatherings. The home has crown molding, beautiful cabinetry, and vinyl plank flooring in all areas except the bedrooms. The spacious kitchen has granite countertops, stainless appliances, lots of cabinets, pantry, and breakfast bar. There is a cozy breakfast nook area with large windows to capture the morning sunshine. The living room has a fabulous wood accent wall and there is also a built in desk area. Large covered patio to enjoy in the early morning or evening."
+            android:text="@string/label_house_description"
             android:textSize="@dimen/text_size_body"
+            android:justificationMode="inter_word"
             android:textColor="@color/textColorMain"
             android:textStyle="normal"
             android:layout_marginBottom="@dimen/activity_horizontal_margin"/>

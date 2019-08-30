@@ -14,9 +14,19 @@
     <string name="title_near_you">Near You</string>
     <string name="title_low_to_high">Low to High Price</string>
     <string name="title_our_choice">Our Choice</string>
-
+    <string name="label_price">1500000</string>
+    <string name="label_detail_price">$ 1500000</string>
+    <string name="label_favourite">324 Favourites</string>
+    <string name="label_review">23 Reviews</string>
+    <string name="label_see_service">See Services</string>
+    <string name="label_see_photos">See Photos</string>
     <string name="hint_search_text">Your location, addresss,..</string>
     <string name="title_activity_house_detail">HouseDetailActivity</string>
+    <string name="label_house_location">West Minister, London</string>
+    <string name="label_squareft">3200 Sqft</string>
+    <string name="label_rooms">4 bedrooms</string>
+    <string name="label_single_family_house">Single Family House</string>
+    <string name="label_house_description">ou will fall in love with this 4 bedroom, 2 bath home featuring 2185 SF and a large fenced lot! Upon entering the home you step into a large foyer and a formal dining room on your right. You will love the wide open space of the living/kitchen/breakfast area which is perfect for large gatherings. The home has crown molding, beautiful cabinetry, and vinyl plank flooring in all areas except the bedrooms. The spacious kitchen has granite countertops, stainless appliances, lots of cabinets, pantry, and breakfast bar. There is a cozy breakfast nook area with large windows to capture the morning sunshine. The living room has a fabulous wood accent wall and there is also a built in desk area. Large covered patio to enjoy in the early morning or evening.</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
