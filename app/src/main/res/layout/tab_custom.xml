@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
     android:layout_width="match_parent"
@@ -10,20 +9,18 @@
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/tv_tab"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         tools:text="Tab Text"
-        android:textSize="@dimen/tab_text_size"
+        android:textSize="@dimen/text_size_body_small"
         android:textStyle="bold"
         android:gravity="center"
-        android:textColor="@color/tabTextColor"/>
+        android:textColor="@color/textColorMain"/>
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/imgv_tab"
         android:layout_width="10dp"
         android:layout_height="10dp"
         android:layout_gravity="center"
         android:visibility="invisible"
-        android:layout_marginEnd="@dimen/inner_margin"
-        android:layout_marginBottom="@dimen/m_layout_padding"
         app:srcCompat="@drawable/ic_dot"/>
 
 </LinearLayout>

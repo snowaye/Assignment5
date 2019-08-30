@@ -17,7 +17,7 @@
             android:orientation="vertical"
             app:cardCornerRadius="@dimen/activity_vertical_margin"
             app:cardUseCompatPadding="true"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
             app:cardBackgroundColor="@color/textColorWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -32,6 +32,8 @@
                     <android.support.v7.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="@dimen/activity_horizontal_margin"
                         android:text="$ 150000"
                         android:textSize="@dimen/text_size_title_h2"
                         android:textColor="@color/textColorMain"
@@ -71,7 +73,7 @@
                             android:gravity="bottom"
                             android:orientation="horizontal">
                             <android.support.v7.widget.AppCompatImageView
-                                android:layout_width="24dp"
+                                android:layout_width="22dp"
                                 android:layout_height="24dp"
                                 android:layout_marginStart="@dimen/inner_margin"
                                 android:layout_marginEnd="@dimen/activity_vertical_margin"
@@ -176,11 +178,12 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="See Photos"
+                            android:gravity="center"
                             android:background="@drawable/bg_see_photos"
                             android:paddingStart="@dimen/activity_vertical_margin"
                             android:paddingEnd="@dimen/activity_vertical_margin"
-                            android:paddingTop="@dimen/inner_margin"
-                            android:paddingBottom="@dimen/inner_margin"
+                            android:paddingTop="@dimen/activity_vertical_margin"
+                            android:paddingBottom="@dimen/activity_vertical_margin"
                             android:textColor="@color/textColorMain"
                             android:textSize="@dimen/text_size_body"/>
                     </LinearLayout>
@@ -190,7 +193,6 @@
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/ic_send"
                     android:layout_gravity="top|end"
-                    android:layout_marginTop="100dp"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
             </FrameLayout>
 

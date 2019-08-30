@@ -28,7 +28,9 @@ public class LowToHighFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerview);
         manager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,
                 false);
-        recyclerView.setAdapter(new HouseAdapter());
+
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setAdapter(new HouseAdapter(getContext()));
         return view;
 
     }

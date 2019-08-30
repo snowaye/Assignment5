@@ -31,9 +31,10 @@
                     app:chipIcon="@drawable/ic_dollar"
                     app:chipStartPadding="@dimen/activity_vertical_margin"
                     app:chipEndPadding="@dimen/activity_vertical_margin"
+                    android:textAppearance="@style/Widget.MaterialComponents.Chip.Action"
                     android:layout_gravity="start|bottom"
+                    style="@style/Widget.MaterialComponents.Chip.Action"
                     android:layout_margin="@dimen/activity_vertical_margin"
-                    android:background="@color/textColorWhite"
                     android:text="150000"/>
             </FrameLayout>
             <LinearLayout
@@ -46,6 +47,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginEnd="@dimen/activity_vertical_margin"
+                    android:layout_marginBottom="2dp"
                     app:srcCompat="@drawable/ic_location"/>
                 <android.support.v7.widget.AppCompatTextView
                     android:layout_width="0dp"
@@ -65,11 +67,13 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="bottom"
                     android:orientation="horizontal">
                     <android.support.v7.widget.AppCompatImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_marginStart="@dimen/inner_margin"
+                        android:layout_marginBottom="2dp"
                         android:layout_marginEnd="@dimen/activity_vertical_margin"
                         app:srcCompat="@drawable/ic_squareft"/>
                     <android.support.v7.widget.AppCompatTextView
@@ -82,11 +86,13 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="bottom"
                     android:orientation="horizontal">
                     <android.support.v7.widget.AppCompatImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_marginEnd="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="2dp"
                         app:srcCompat="@drawable/ic_room"/>
                     <android.support.v7.widget.AppCompatTextView
                         android:layout_width="0dp"

@@ -15,11 +15,11 @@ import com.padc.batch9.assignment5.activity.adapter.HouseAdapter;
 
 public class TopCollectionFragment extends Fragment {
 
-    public TopCollectionFragment() {
-    }
-
     RecyclerView recyclerView;
     LinearLayoutManager manager;
+
+    public TopCollectionFragment() {
+    }
 
     @Nullable
     @Override
@@ -27,6 +27,12 @@ public class TopCollectionFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.from(getContext()).inflate(R.layout.fragment_top_collection, container,
                 false);
+
+        recyclerView = view.findViewById(R.id.recyclerview);
+        manager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,
+                false);
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setAdapter(new HouseAdapter(getContext()));
 
         return view;
     }

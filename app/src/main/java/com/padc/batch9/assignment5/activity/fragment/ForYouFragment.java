@@ -20,7 +20,7 @@ import com.padc.batch9.assignment5.R;
 import com.padc.batch9.assignment5.activity.adapter.HouseAdapter;
 import com.padc.batch9.assignment5.activity.adapter.MyViewPagerAdapter;
 
-public class ForYouFragment extends Fragment implements TabLayout.BaseOnTabSelectedListener {
+public class ForYouFragment extends Fragment {
 
     public ForYouFragment() {
     }
@@ -40,9 +40,9 @@ public class ForYouFragment extends Fragment implements TabLayout.BaseOnTabSelec
         viewPager.setSaveFromParentEnabled(false);
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
-        setupTabIcons();
+        //setupTabIcons();
         selectFirstTab();
-        tabLayout.addOnTabSelectedListener(this);
+        //tabLayout.addOnTabSelectedListener(this);
         return view;
     }
 
@@ -58,6 +58,7 @@ public class ForYouFragment extends Fragment implements TabLayout.BaseOnTabSelec
 
     private void setupTabIcons() {
         View viewTopCollection = LayoutInflater.from(getContext()).inflate(R.layout.tab_custom, null);
+        viewTopCollection.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         AppCompatImageView imgvTopCollection =  viewTopCollection.findViewById(R.id.imgv_tab);
         AppCompatTextView tvTopCollection =  viewTopCollection.findViewById(R.id.tv_tab);
         tvTopCollection.setText(getResources().getString(R.string.title_top_collection));
@@ -65,6 +66,7 @@ public class ForYouFragment extends Fragment implements TabLayout.BaseOnTabSelec
         imgvTopCollection.setVisibility(View.VISIBLE);
 
         View viewNearYou = LayoutInflater.from(getContext()).inflate(R.layout.tab_custom, null);
+        viewNearYou.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         AppCompatImageView imgvNearYou =  viewNearYou.findViewById(R.id.imgv_tab);
         AppCompatTextView tvNearYou =  viewNearYou.findViewById(R.id.tv_tab);
         tvNearYou.setTextColor(ContextCompat.getColor(getContext(), R.color.textColorMainLight));
@@ -72,6 +74,7 @@ public class ForYouFragment extends Fragment implements TabLayout.BaseOnTabSelec
         imgvNearYou.setVisibility(View.INVISIBLE);
 
         View viewLowToHight = LayoutInflater.from(getContext()).inflate(R.layout.tab_custom, null);
+        viewLowToHight.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         AppCompatImageView imgvLowToHigh = viewLowToHight.findViewById(R.id.imgv_tab);
         AppCompatTextView tvLowToHigh =  viewLowToHight.findViewById(R.id.tv_tab);
         tvLowToHigh.setText(getResources().getString(R.string.title_low_to_high));
@@ -79,9 +82,10 @@ public class ForYouFragment extends Fragment implements TabLayout.BaseOnTabSelec
         imgvLowToHigh.setVisibility(View.INVISIBLE);
 
         View viewOurChoice = LayoutInflater.from(getContext()).inflate(R.layout.tab_custom, null);
+        viewOurChoice.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         AppCompatImageView imgvOurChoice = viewOurChoice.findViewById(R.id.imgv_tab);
         AppCompatTextView tvOurChoice =  viewOurChoice.findViewById(R.id.tv_tab);
-        tvOurChoice.setText(getResources().getString(R.string.title_low_to_high));
+        tvOurChoice.setText(getResources().getString(R.string.title_our_choice));
         tvOurChoice.setTextColor(ContextCompat.getColor(getContext(), R.color.textColorMainLight));
         imgvOurChoice.setVisibility(View.INVISIBLE);
 
@@ -147,26 +151,26 @@ public class ForYouFragment extends Fragment implements TabLayout.BaseOnTabSelec
     private void selectFirstTab() {
         viewPager.setCurrentItem(0);
         tabLayout.getTabAt(0).select();
-        View view = tabLayout.getTabAt(0).getCustomView();
-        AppCompatImageView imgvTab = view.findViewById(R.id.imgv_tab);
-        AppCompatTextView tvTab =  view.findViewById(R.id.tv_tab);
-        tvTab.setText(getResources().getString(R.string.title_top_collection));
-        imgvTab.setImageResource(R.drawable.ic_dot);
-        imgvTab.setVisibility(View.VISIBLE);
+       // View view = tabLayout.getTabAt(0).getCustomView();
+      //  AppCompatImageView imgvTab = view.findViewById(R.id.imgv_tab);
+       // AppCompatTextView tvTab =  view.findViewById(R.id.tv_tab);
+        //tvTab.setText(getResources().getString(R.string.title_top_collection));
+//        imgvTab.setImageResource(R.drawable.ic_dot);
+   //     imgvTab.setVisibility(View.VISIBLE);
     }
 
-    @Override
-    public void onTabSelected(TabLayout.Tab tab) {
-        selectTab(tab);
-    }
-
-    @Override
-    public void onTabUnselected(TabLayout.Tab tab) {
-        unselectTab(tab);
-    }
-
-    @Override
-    public void onTabReselected(TabLayout.Tab tab) {
-
-    }
+//    @Override
+//    public void onTabSelected(TabLayout.Tab tab) {
+//        selectTab(tab);
+//    }
+//
+//    @Override
+//    public void onTabUnselected(TabLayout.Tab tab) {
+//        unselectTab(tab);
+//    }
+//
+//    @Override
+//    public void onTabReselected(TabLayout.Tab tab) {
+//
+//    }
 }
