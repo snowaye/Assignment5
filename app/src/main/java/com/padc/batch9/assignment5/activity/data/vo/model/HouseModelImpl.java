@@ -2,7 +2,9 @@ package com.padc.batch9.assignment5.activity.data.vo.model;
 
 import com.padc.batch9.assignment5.activity.data.vo.HouseVo;
 import com.padc.batch9.assignment5.activity.network.dataagent.HouseDataAgent;
+import com.padc.batch9.assignment5.activity.util.HouseConstant;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,10 +12,12 @@ import java.util.Map;
 public class HouseModelImpl extends BaseModel implements HouseModel {
 
     private static HouseModelImpl objInstance;
-    private Map<Integer, HouseVo> eventtDataRepository;
+    private Map<Integer, HouseVo> houseDataReposistory;
+    //private List<HouseVo> houseDataReposistory;
 
     private HouseModelImpl() {
-        eventtDataRepository = new HashMap<>();
+        houseDataReposistory = new HashMap<>();
+        //houseDataReposistory = new ArrayList<>();
     }
 
     public static HouseModelImpl getObjInstance() {
@@ -26,13 +30,26 @@ public class HouseModelImpl extends BaseModel implements HouseModel {
         mDataAgent.getHouse(new HouseDataAgent.GetHouseFromNetworkDelegate() {
             @Override
             public void onSuccess(List<HouseVo> houses) {
+                for (HouseVo house:houses) {
+                    houseDataReposistory.put(house.getId(), house);
+                }
                 delegate.onSuccess(houses);
             }
 
             @Override
-            public void onFail(String errorMessage) {
-                delegate.onFailure(errorMessage);
+            public void onFailure(String errorMessage) {
+                delegate.onFailure(HouseConstant.EM_NULL_RESPONSE);
             }
         });
+    }
+
+    @Override
+    public HouseVo findHouseById(int id) {
+        HouseVo houseVo = null;
+        for (Integer i:houseDataReposistory.keySet()) {
+            if (i==id)
+                houseVo = houseDataReposistory.get(id);
+        }
+        return houseVo;
     }
 }

@@ -22,11 +22,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/imgv_house"
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
                     android:scaleType="centerCrop"
                     app:srcCompat="@drawable/img_house"/>
                 <android.support.design.chip.Chip
+                    android:id="@+id/chip_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:chipIcon="@drawable/ic_dollar"
@@ -53,6 +55,7 @@
                     android:layout_marginBottom="2dp"
                     app:srcCompat="@drawable/ic_location"/>
                 <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_house_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -80,6 +83,7 @@
                         android:layout_marginEnd="@dimen/activity_vertical_margin"
                         app:srcCompat="@drawable/ic_squareft"/>
                     <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_squareft"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -98,6 +102,7 @@
                         android:layout_marginBottom="2dp"
                         app:srcCompat="@drawable/ic_room"/>
                     <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_room"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

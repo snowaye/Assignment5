@@ -1,5 +1,7 @@
 package com.padc.batch9.assignment5.activity.fragment;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,8 +21,13 @@ import android.view.ViewGroup;
 import com.padc.batch9.assignment5.R;
 import com.padc.batch9.assignment5.activity.adapter.HouseAdapter;
 import com.padc.batch9.assignment5.activity.adapter.MyViewPagerAdapter;
+import com.padc.batch9.assignment5.activity.data.vo.HouseVo;
+import com.padc.batch9.assignment5.activity.delegate.HouseDataDelegate;
 
-public class ForYouFragment extends Fragment {
+import java.util.List;
+
+public class ForYouFragment extends Fragment implements HouseDataDelegate {
+    private String tag = getClass().getSimpleName();
 
     public ForYouFragment() {
     }
@@ -28,6 +35,8 @@ public class ForYouFragment extends Fragment {
     TabLayout tabLayout;
     ViewPager viewPager;
     MyViewPagerAdapter adapter;
+    HouseDataDelegate delegate;
+    List<HouseVo> houseVoList;
 
 
     @Nullable
@@ -43,6 +52,8 @@ public class ForYouFragment extends Fragment {
         //setupTabIcons();
         selectFirstTab();
         //tabLayout.addOnTabSelectedListener(this);
+        houseVoList = delegate.sendHouseDataToFragments();
+        Log.i(tag, "houseVoList="+houseVoList.size());
         return view;
     }
 
@@ -159,7 +170,27 @@ public class ForYouFragment extends Fragment {
    //     imgvTab.setVisibility(View.VISIBLE);
     }
 
-//    @Override
+    @Override
+    public void onAttach(Context activity) {
+        super.onAttach(activity);
+        try {
+            if (activity instanceof HouseDataDelegate)
+            delegate = (HouseDataDelegate) activity;
+        }
+        catch (ClassCastException ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public List<HouseVo> sendHouseDataToFragments() {
+        houseVoList = delegate.sendHouseDataToFragments();
+        Log.i(tag, "houseVoList="+houseVoList.size());
+        return houseVoList;
+    }
+
+    //    @Override
 //    public void onTabSelected(TabLayout.Tab tab) {
 //        selectTab(tab);
 //    }

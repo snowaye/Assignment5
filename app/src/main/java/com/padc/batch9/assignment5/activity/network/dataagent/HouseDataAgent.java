@@ -10,6 +10,6 @@ public interface HouseDataAgent {
 
     public interface GetHouseFromNetworkDelegate {
         public void onSuccess(List<HouseVo> houses);
-        public void onFail(String errorMessage);
+        public void onFailure(String errorMessage);
     }
 }

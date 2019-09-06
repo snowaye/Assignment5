@@ -8,12 +8,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 
 import com.padc.batch9.assignment5.R;
 import com.padc.batch9.assignment5.activity.HouseDetailActivity;
+import com.padc.batch9.assignment5.activity.data.vo.HouseVo;
 import com.padc.batch9.assignment5.activity.view.viewholder.HouseViewHolder;
 
-public class HouseAdapter extends RecyclerView.Adapter<HouseViewHolder> {
+public class HouseAdapter extends BaseRecyclerViewAdapter<HouseViewHolder, HouseVo> {
     private String tag = getClass().getSimpleName();
     Context context;
 
@@ -30,21 +32,4 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseViewHolder> {
         return new HouseViewHolder(view);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull HouseViewHolder houseViewHolder, int i) {
-        houseViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, HouseDetailActivity.class);
-                context.startActivity(intent);
-            }
-        });
-    }
-
-
-    @Override
-    public int getItemCount() {
-        Log.i(tag, "getItemCount");
-        return 4;
-    }
 }

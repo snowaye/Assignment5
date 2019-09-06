@@ -1,27 +1,22 @@
 package com.padc.batch9.assignment5.activity.network.dataagent;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.google.gson.Gson;
-import com.padc.batch9.assignment5.activity.network.dataagent.HouseDataAgent;
 import com.padc.batch9.assignment5.activity.network.response.GetHousesResponse;
 import com.padc.batch9.assignment5.activity.util.HouseConstant;
 
 import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.List;
 
 public class HttpUrlConnectionHouseAgent implements HouseDataAgent {
@@ -39,14 +34,15 @@ public class HttpUrlConnectionHouseAgent implements HouseDataAgent {
 
     @Override
     public void getHouse(GetHouseFromNetworkDelegate delegate) {
-        new GetHouseTask().execute();
+        new GetHouseTask(delegate).execute();
     }
 
     private static class GetHouseTask extends AsyncTask<Void, Void, GetHousesResponse> {
 
+        GetHouseFromNetworkDelegate delegate;
 
-        public GetHouseTask() {
-
+        GetHouseTask(GetHouseFromNetworkDelegate delegate) {
+            this.delegate = delegate;
         }
 
         @Override
@@ -60,20 +56,24 @@ public class HttpUrlConnectionHouseAgent implements HouseDataAgent {
                         HouseConstant.GET_HOUSE);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("POST");
+                connection.setRequestProperty("Content-Type", "application/json");
                 connection.setReadTimeout(15 * 10000);
                 connection.setDoInput(true);
                 connection.setDoOutput(true);
 
-                List<NameValuePair> params = new ArrayList<>();
-                params.add(new BasicNameValuePair(HouseConstant.PARAM_ACCESS_TOKEN, HouseConstant.DUMMY_ACCESS_TOKEN));
-
-                OutputStream outputStream = connection.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-                writer.write(getQuery(params));
-                writer.flush();
-                writer.close();
-                outputStream.close();
+//                List<NameValuePair> params = new ArrayList<>();
+//                params.add(new BasicNameValuePair(HouseConstant.PARAM_ACCESS_TOKEN, HouseConstant.DUMMY_ACCESS_TOKEN));
+//
+//                OutputStream outputStream = connection.getOutputStream();
+//                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+//                writer.write(getQuery(params));
+//                writer.flush();
+//                writer.close();
+//                outputStream.close();
                 connection.connect();
+
+                Log.i("tag", connection.getResponseCode()+"");
+                Log.i("tag", connection.getResponseMessage()+"");
 
                 reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 stringBuilder = new StringBuilder();
@@ -92,6 +92,22 @@ public class HttpUrlConnectionHouseAgent implements HouseDataAgent {
             }
 
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(GetHousesResponse getHousesResponse) {
+            super.onPostExecute(getHousesResponse);
+            if (getHousesResponse!=null) {
+                if(getHousesResponse.isResponseOk()) {
+                    delegate.onSuccess(getHousesResponse.getHouseVoList());
+                }
+                else {
+                    delegate.onFailure(getHousesResponse.getErrorMessage());
+                }
+            }
+            else {
+                delegate.onFailure(HouseConstant.EM_NULL_RESPONSE);
+            }
         }
     }
 

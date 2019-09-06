@@ -14,6 +14,10 @@ import android.view.View;
 
 import com.padc.batch9.assignment5.R;
 import com.padc.batch9.assignment5.activity.adapter.MyViewPagerAdapter;
+import com.padc.batch9.assignment5.activity.data.vo.HouseVo;
+import com.padc.batch9.assignment5.activity.data.vo.model.HouseModel;
+import com.padc.batch9.assignment5.activity.data.vo.model.HouseModelImpl;
+import com.padc.batch9.assignment5.activity.delegate.HouseDataDelegate;
 import com.padc.batch9.assignment5.activity.fragment.DiscoverFragment;
 import com.padc.batch9.assignment5.activity.fragment.FavouriteFragment;
 import com.padc.batch9.assignment5.activity.fragment.ForYouFragment;
@@ -22,11 +26,16 @@ import com.padc.batch9.assignment5.activity.fragment.NearMeFragment;
 import com.padc.batch9.assignment5.activity.fragment.ProfileFragment;
 import com.padc.batch9.assignment5.activity.util.Utils;
 
-public class HouseRentingActivity extends AppCompatActivity implements TabLayout.BaseOnTabSelectedListener {
+import java.util.ArrayList;
+import java.util.List;
+
+public class HouseRentingActivity extends BaseActivity implements
+        TabLayout.BaseOnTabSelectedListener, HouseDataDelegate {
     private String tag = getClass().getSimpleName();
     TabLayout tabLayout;
     ViewPager viewPager;
     MyViewPagerAdapter adapter;
+    List<HouseVo> list;
 
 
     @Override
@@ -35,11 +44,28 @@ public class HouseRentingActivity extends AppCompatActivity implements TabLayout
         setContentView(R.layout.activity_house_renting);
         initializeUiComponent();
         Utils.setStatusBarColor(this, R.color.statusBarColor);
-        setupViewPager(viewPager);
-        tabLayout.setupWithViewPager(viewPager);
-        setupTabIcons();
-        selectFirstTab();
-        tabLayout.addOnTabSelectedListener(this);
+
+
+        houseModel.getHouse(new HouseModel.GetHouseModelFromDataLayer() {
+            @Override
+            public void onSuccess(List<HouseVo> houses) {
+
+                list = new ArrayList<>(houses);
+                Log.i(tag, "house="+houses.size());
+                sendHouseDataToFragments();
+                setupViewPager(viewPager);
+                tabLayout.setupWithViewPager(viewPager);
+                setupTabIcons();
+                selectFirstTab();
+                tabLayout.addOnTabSelectedListener(HouseRentingActivity.this);
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                showIdefiniteSnakBar(errorMessage);
+            }
+        });
+
     }
 
     private void initializeUiComponent() {
@@ -206,5 +232,10 @@ public class HouseRentingActivity extends AppCompatActivity implements TabLayout
     @Override
     public void onTabReselected(TabLayout.Tab tab) {
 
+    }
+
+    @Override
+    public List<HouseVo> sendHouseDataToFragments() {
+        return list;
     }
 }

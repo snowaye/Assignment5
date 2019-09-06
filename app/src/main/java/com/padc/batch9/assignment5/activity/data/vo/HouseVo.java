@@ -1,14 +1,54 @@
 package com.padc.batch9.assignment5.activity.data.vo;
 
+import android.content.Intent;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class HouseVo {
+    @SerializedName("id")
+    @Expose
+    private int id;
+
+    @SerializedName("house_image_url")
+    @Expose
     private String houseImageUrl;
+
+    @SerializedName("name")
+    @Expose
     private String name;
+
+    @SerializedName("description")
+    @Expose
     private String description;
-    private int price;
+
+    @SerializedName("price")
+    @Expose
+    private long price;
+
+    @SerializedName("address")
+    @Expose
     private String address;
+
+    @SerializedName("square_feet")
+    @Expose
     private int squareFt;
+
+    @SerializedName("latitude")
+    @Expose
     private double latitude;
+
+    @SerializedName("longitude")
+    @Expose
     private double longitude;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getHouseImageUrl() {
         return houseImageUrl;
@@ -34,11 +74,11 @@ public class HouseVo {
         this.description = description;
     }
 
-    public int getPrice() {
+    public long getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(long price) {
         this.price = price;
     }
 
