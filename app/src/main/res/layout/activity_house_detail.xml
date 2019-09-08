@@ -26,6 +26,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
             <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/imgv_house"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
@@ -81,11 +82,14 @@
                 </LinearLayout>
             </android.support.v7.widget.Toolbar>
 
-
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_house_detail" />
+
+    <include
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="top"
+        layout="@layout/content_house_detail" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -106,7 +110,7 @@
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
             android:gravity="center"
             style="@style/Widget.MaterialComponents.Chip.Action"
-            android:text="@string/label_price"/>
+            android:text="@string/label_btn_add_favourite"/>
         <android.support.design.chip.Chip
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -120,6 +124,6 @@
             app:chipBackgroundColor="@color/iconFabColor"
             android:textColor="@color/textColorWhite"
             style="@style/Widget.MaterialComponents.Chip.Action"
-            android:text="@string/label_price"/>
+            android:text="@string/label_btn_book_now"/>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

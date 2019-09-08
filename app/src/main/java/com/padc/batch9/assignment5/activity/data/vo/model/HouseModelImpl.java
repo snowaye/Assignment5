@@ -3,8 +3,6 @@ package com.padc.batch9.assignment5.activity.data.vo.model;
 import com.padc.batch9.assignment5.activity.data.vo.HouseVo;
 import com.padc.batch9.assignment5.activity.network.dataagent.HouseDataAgent;
 import com.padc.batch9.assignment5.activity.util.HouseConstant;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

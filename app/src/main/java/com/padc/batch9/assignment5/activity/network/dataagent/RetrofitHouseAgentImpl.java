@@ -55,41 +55,6 @@ public class RetrofitHouseAgentImpl implements HouseDataAgent{
     @Override
     public void getHouse(final GetHouseFromNetworkDelegate delegate) {
         Log.i("TAG", "Retrofit GEt House");
-
-//        Call<JSONObject> call = houseApi.getAllHouses();
-//        call.enqueue(new Callback<JSONObject>() {
-//            @Override
-//            public void onResponse(Call<JSONObject> call, Response<JSONObject> response) {
-//                //GetHousesResponse housesResponse = response.body();
-//                try {
-//                    JSONObject jsonObject = new JSONObject(response.body().toString());
-//                    Log.i("TAG", "code="+jsonObject.getInt("code"));
-//                    GetHousesResponse housesResponse = new Gson().fromJson(jsonObject.toString(), GetHousesResponse.class);
-//                    if (housesResponse.isResponseOk()) {
-//                        if (housesResponse!=null) {
-//                            delegate.onSuccess(housesResponse.getHouseVoList());
-//                        }
-//                        else {
-//                            delegate.onFailure(housesResponse.getErrorMessage());
-//                        }
-//                    }
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//                Log.i("TAG", "houseresonse="+housesResponse.getErrorCode());
-//                Log.i("TAG", "message="+housesResponse.getErrorMessage());
-//                Log.i("TAG", "list="+housesResponse.getHouseVoList().size());
-
-
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<JSONObject> call, Throwable t) {
-//                delegate.onFailure(t.getMessage());
-//            }
-//        });
-
         Call<GetHousesResponse> call = houseApi.getAllHouses();
 
         Log.i("TAG", "Call");

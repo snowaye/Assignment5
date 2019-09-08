@@ -43,7 +43,7 @@ public class HouseRentingActivity extends BaseActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house_renting);
         initializeUiComponent();
-        Utils.setStatusBarColor(this, R.color.statusBarColor);
+        //Utils.setStatusBarColor(this, R.color.statusBarColor);
 
 
         houseModel.getHouse(new HouseModel.GetHouseModelFromDataLayer() {

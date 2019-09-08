@@ -9,6 +9,6 @@ public abstract class BaseModel {
     protected HouseDataAgent mDataAgent;
 
     public BaseModel() {
-        mDataAgent = OkHttpHouseAgentImpl.getObjInstance();
+        mDataAgent = RetrofitHouseAgentImpl.getObjInstance();
     }
 }

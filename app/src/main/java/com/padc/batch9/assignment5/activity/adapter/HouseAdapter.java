@@ -9,18 +9,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import com.padc.batch9.assignment5.R;
 import com.padc.batch9.assignment5.activity.HouseDetailActivity;
 import com.padc.batch9.assignment5.activity.data.vo.HouseVo;
+import com.padc.batch9.assignment5.activity.delegate.HouseItemDelegate;
 import com.padc.batch9.assignment5.activity.view.viewholder.HouseViewHolder;
 
-public class HouseAdapter extends BaseRecyclerViewAdapter<HouseViewHolder, HouseVo> {
+public class HouseAdapter extends BaseRecyclerViewAdapter<HouseViewHolder, HouseVo>{
     private String tag = getClass().getSimpleName();
-    Context context;
+    //Context context;
+    HouseItemDelegate delegate;
 
-    public HouseAdapter(Context context) {
-        this.context = context;
+    public HouseAdapter(HouseItemDelegate delegate) {
+        //this.context = context;
+        this.delegate = delegate;
     }
 
     @NonNull
@@ -29,7 +34,7 @@ public class HouseAdapter extends BaseRecyclerViewAdapter<HouseViewHolder, House
         Log.i(tag, "onCreateVeiwHolder");
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.listitem_house,
                 viewGroup, false);
-        return new HouseViewHolder(view);
+        return new HouseViewHolder(view, delegate);
     }
 
 }
